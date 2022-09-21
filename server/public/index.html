@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Document</title>
+</head>
+
+<body>
+    <h1>User APIs:</h1>
+    <ul>
+        <li>
+            <p>Adds a new user</p>
+            <a href='/user/addUser'>/user/add-user</a>
+            <br />
+            <pre id="addUser"></pre>
+        </li>
+        <li>
+            <p>Edit user details</p>
+            <a href='/user/edit-user'>/user/edit-user</a>
+            <br />
+            <pre id="editUser"></pre>
+        </li>
+        <li>
+            <p>Login user</p>
+            <a href='/user/login-user'>/user/login-user</a>
+            <pre id="loginUser"></pre>
+        </li>
+    </ul>
+
+    <h1>Post APIs</h1>
+    <ul>
+        <li>
+            <p>Add a post</p>
+            <a href='/post/addPost'>/post/addPost</a>
+            <pre id="addPost"></pre>
+        </li>
+        <li>
+            <p>get posts</p>
+            <a href='/post/getPosts'>/post/getPosts</a>
+            <pre id="getPosts"></pre>
+        </li>
+    </ul>
+
+    <script>
+        const addUser = {
+            "type": "POST",
+            "body": {
+                "username": "string:required",
+                "email": "string:required",
+                "password": "string:required",
+                "avatar": "base64"
+            }
+        }
+        const editUser = {
+            "type": "PUT",
+            "body": {
+                "id": "string:required",
+                "username": "string:required",
+                "avatar": "base64"
+            }
+        } 
+        const loginUser = {
+            "type": "POST",
+            "body": {
+                "user": "string:required",
+                "password": "string:required"
+            }
+        }
+        const getPosts = {
+            "type": "GET",   
+        }
+
+
+        const addPost = {
+            type: "POST",
+            "body": {
+                "userId": "string:required",
+                "title": "string:required",
+                "content": "string:required",
+                "category": "string:required",
+            }
+        }
+
+        document.querySelector('#addUser').innerHTML = JSON.stringify(addUser, undefined, 2);
+        document.querySelector('#editUser').innerHTML = JSON.stringify(editUser, undefined, 2);
+        document.querySelector('#loginUser').innerHTML = JSON.stringify(loginUser, undefined, 2);
+        document.querySelector('#getPosts').innerHTML = JSON.stringify(getPosts, undefined, 2);
+
+        document.querySelector('#addPost').innerHTML = JSON.stringify(addPost, undefined, 2);
+    </script>
+</body>
+
+</html>
