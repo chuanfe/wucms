@@ -11,6 +11,7 @@ module.exports = {
     return { error, value };
   },
   addPostValidation: (data) => {
+    console.log('addPostValidation', data)
     const schema = Joi.object({
       userId: Joi.string().required(),
       title: Joi.string().required(),
@@ -22,18 +23,13 @@ module.exports = {
     const { error, value } = schema.validate(data);
     return { error, value };
   },
-  addRetweetValidation: (data) => {
+  addCategoryValidation: (data) => {
+    console.log('addCategoryValidation', data)
     const schema = Joi.object({
-      userId: Joi.string().required(),
-      tweetId: Joi.string().required(),
-    }).options({ abortEarly: false });
-    const { error, value } = schema.validate(data);
-    return { error, value };
-  },
-  bookmarkValidation: (data) => {
-    const schema = Joi.object({
-      userId: Joi.string().required(),
-      tweetId: Joi.string().required(),
+      key: Joi.string().required(),
+      title: Joi.string().required(),
+      parentKey: Joi.string().required(),
+      image: Joi.string().required(),
     }).options({ abortEarly: false });
     const { error, value } = schema.validate(data);
     return { error, value };

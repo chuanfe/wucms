@@ -6,6 +6,9 @@ const docs = require("./routes/docs");
 const user = require("./routes/user");
 
 const post = require("./routes/post");
+const category = require("./routes/category");
+
+const upload = require("./routes/upload");
 
 const app = express();
 app.use(cors());
@@ -23,6 +26,8 @@ app.use(function (req, res, next) {
 app.use("/", docs);
 app.use("/user", user);
 app.use("/post", post);
+app.use("/category", category);
+app.use("/upload", upload);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`server started on port ${PORT}`));

@@ -9,7 +9,7 @@ const {
 
 const { verifyJwt } = require("../authorization");
 
-router.post("/addPost", upload.single("media"), addPost);
+router.post("/addPost", upload.single("thumbnail"), addPost);
 router.get("/getPosts", getPosts);
 router.delete("/removePost", verifyJwt, removePost);
 
